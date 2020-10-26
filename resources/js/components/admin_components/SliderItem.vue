@@ -137,7 +137,7 @@ export default {
                         var reader = new FileReader();
                         reader.onload = (es) =>
                         {
-                            console.log(es.target.result);
+                            console.log(this.item);
                             document.querySelector("#slide"+this.item.id).style.background = "url('"+es.target.result+"')";
                         };
                         reader.readAsDataURL(files[0]);

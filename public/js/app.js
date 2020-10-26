@@ -2129,7 +2129,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       var files = e.target.files || e.dataTrasfer.files;
-      if (files.length > 0) if (files[0].type == files[0].type.split('/')[0] == 'image') {
+      if (files.length > 0) if (files[0].type.split('/')[0] == 'image') {
         // 
         this.image = this.$refs.file.files[0];
         console.log(this.image);
@@ -2679,7 +2679,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         var reader = new FileReader();
 
         reader.onload = function (es) {
-          console.log(es.target.result);
+          console.log(_this.item);
           document.querySelector("#slide" + _this.item.id).style.background = "url('" + es.target.result + "')";
         };
 

@@ -148,7 +148,7 @@ export default {
         {
             var files = e.target.files || e.dataTrasfer.files;
             if(files.length > 0)
-            if(files[0].type == files[0].type.split('/')[0] == 'image')
+            if(files[0].type.split('/')[0] == 'image')
             {
                 // 
                 this.image = this.$refs.file.files[0];
