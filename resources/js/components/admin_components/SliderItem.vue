@@ -11,8 +11,8 @@
                     </form>
                     <div class="row pl-5 pr-5">
                         <div class="form-group">
-                            <label  for="select-file" class="mt-auto mb-auto btn btn-primary"><i class="fa fa-cloud-upload"></i> Выберете файл</label>
-                            <input type="file" id="select-file" accept="image/*" @change="SelectFile" ref="file" class="form-control-file d-none">  
+                            <label  :for="'select-file'+item.id" class="mt-auto mb-auto btn btn-primary"><i class="fa fa-cloud-upload"></i> Выберете файл</label>
+                            <input type="file" :id="'select-file'+item.id" accept="image/*" @change="SelectFile" ref="file" class="form-control-file d-none">  
                         </div>
                         <div class="form-group pl-3 pr-3" v-if="item.del==0">
                             <button :form="'form'+item.id"  class="btn btn-primary">{{item.id | createOrUpdate}}</button>

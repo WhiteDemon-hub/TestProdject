@@ -2125,9 +2125,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.ActionCancelDelete(_data2);
       }
     },
-    SelectFile: function SelectFile(e) {
+    ThisSelectFile: function ThisSelectFile(e, id) {
       var _this = this;
 
+      console.log(this.item);
       var files = e.target.files || e.dataTrasfer.files;
       if (files.length > 0) if (files[0].type.split('/')[0] == 'image') {
         // 
@@ -2144,7 +2145,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }),
   mounted: function mounted() {
-    $('[data-toggle="tooltip"]').tooltip();
     ['drag', 'deagstart', 'dragend', 'dragover', 'dragenter', 'dragleave', 'drop'].forEach(function (event) {
       this.$refs.dd.addEventListener(event, function (e) {
         e.preventDefault();
@@ -40144,13 +40144,27 @@ var render = function() {
     _vm._v(" "),
     _c("dt", { staticClass: "d-flex flex-column m-auto h-100" }, [
       _c("div", { staticClass: "p-2", staticStyle: { width: "150px" } }, [
-        _vm._m(0),
+        _c(
+          "label",
+          {
+            staticClass: "mt-auto mb-auto btn btn-primary",
+            attrs: { for: "select-file" + _vm.item.id }
+          },
+          [
+            _c("i", { staticClass: "fa fa-cloud-upload" }),
+            _vm._v(" Выберете файл")
+          ]
+        ),
         _vm._v(" "),
         _c("input", {
           ref: "file",
           staticClass: "form-control-file d-none",
-          attrs: { type: "file", id: "select-file", accept: "image/*" },
-          on: { change: _vm.SelectFile }
+          attrs: {
+            type: "file",
+            id: "select-file" + _vm.item.id,
+            accept: "image/*"
+          },
+          on: { change: _vm.ThisSelectFile }
         })
       ])
     ]),
@@ -40223,21 +40237,7 @@ var render = function() {
       : _vm._e()
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "mt-auto mb-auto btn btn-primary",
-        attrs: { for: "select-file" }
-      },
-      [_c("i", { staticClass: "fa fa-cloud-upload" }), _vm._v(" Выберете файл")]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -40864,12 +40864,26 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "row pl-5 pr-5" }, [
           _c("div", { staticClass: "form-group" }, [
-            _vm._m(0),
+            _c(
+              "label",
+              {
+                staticClass: "mt-auto mb-auto btn btn-primary",
+                attrs: { for: "select-file" + _vm.item.id }
+              },
+              [
+                _c("i", { staticClass: "fa fa-cloud-upload" }),
+                _vm._v(" Выберете файл")
+              ]
+            ),
             _vm._v(" "),
             _c("input", {
               ref: "file",
               staticClass: "form-control-file d-none",
-              attrs: { type: "file", id: "select-file", accept: "image/*" },
+              attrs: {
+                type: "file",
+                id: "select-file" + _vm.item.id,
+                accept: "image/*"
+              },
               on: { change: _vm.SelectFile }
             })
           ]),
@@ -40922,21 +40936,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "mt-auto mb-auto btn btn-primary",
-        attrs: { for: "select-file" }
-      },
-      [_c("i", { staticClass: "fa fa-cloud-upload" }), _vm._v(" Выберете файл")]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

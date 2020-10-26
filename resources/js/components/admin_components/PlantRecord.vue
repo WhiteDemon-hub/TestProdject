@@ -13,8 +13,8 @@
         </td>
         <dt class="d-flex flex-column m-auto h-100">
             <div class="p-2" style="width:150px">
-                <label  for="select-file" class="mt-auto mb-auto btn btn-primary"><i class="fa fa-cloud-upload"></i> Выберете файл</label>
-                <input type="file" id="select-file" accept="image/*" @change="SelectFile" ref="file" class="form-control-file d-none">  
+                <label  :for="'select-file'+item.id" class="mt-auto mb-auto btn btn-primary"><i class="fa fa-cloud-upload"></i> Выберете файл</label>
+                <input type="file" :id="'select-file'+item.id" accept="image/*" @change="ThisSelectFile" ref="file" class="form-control-file d-none">  
             </div>
         </dt>
         <td>
@@ -144,8 +144,9 @@ export default {
             }
         },
 
-        SelectFile(e)
+        ThisSelectFile(e, id)
         {
+            console.log(this.item);
             var files = e.target.files || e.dataTrasfer.files;
             if(files.length > 0)
             if(files[0].type.split('/')[0] == 'image')
@@ -165,7 +166,6 @@ export default {
 
     mounted()
     {
-        $('[data-toggle="tooltip"]').tooltip();
 
         ['drag', 'deagstart', 'dragend', 'dragover', 'dragenter', 'dragleave', 'drop'].forEach(function(event)
             {
